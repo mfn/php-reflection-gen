@@ -1,0 +1,34 @@
+{
+    "name": "mfn/php-reflection-gen",
+    "description": "Generates PHP source code shells from the current runtime via Reflections",
+    "type": "library",
+    "keywords": [
+        "reflection",
+        "code",
+        "generator"
+    ],
+    "homepage": "http://github.com/mfn/php-reflection-gen",
+    "authors": [
+        {
+            "name": "Markus Fischer",
+            "email": "markus@fischer.name",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/mfn/php-reflection-gen/issues"
+    },
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/console": "2.5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mfn\\PHP\\Reflection\\Generator\\": "lib/"
+        }
+    },
+    "bin": [
+      "bin/php_reflection_gen.php"
+    ]
+}
