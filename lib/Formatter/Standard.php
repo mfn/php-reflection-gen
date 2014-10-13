@@ -91,32 +91,35 @@ class Standard implements Formatter {
   }
 
   public function formatClass(\ReflectionClass $class) {
-    $str = '';
+    $parts = [];
+    if ($class->isAbstract() && !$class->isInterface()) {
+      $parts[] = 'abstract';
+    }
     if ($class->isInterface()) {
-      $str .= 'interface';
+      $parts[] = 'interface';
     } else if ($class->isTrait()) {
-      $str .= 'trait';
+      $parts[] = 'trait';
     } else {
-      $str .= 'class';
+      $parts[] = 'class';
     }
     # TODO : properly handle namespaces
-    $str .= ' ' . $class->getName() . ' ';
+    $parts[] = $class->getName();
     $parent = $class->getParentClass();
     if (false !== $parent) {
       # TODO : properly handle namespaces
-      $str .= 'extends ' . $parent->getName();
+      $parts[] = 'extends ' . $parent->getName();
     }
     # TODO : properly handle namespaces
     $interfaces = $class->getInterfaceNames();
     if (count($interfaces) > 0) {
       if ($class->isInterface()) {
-        $str .= 'extends ';
+        $parts[] = 'extends';
       } else {
-        $str .= 'implements ';
+        $parts[] = 'implements';
       }
-      $str .= join(', ', $interfaces);
+      $parts[] = join(', ', $interfaces);
     }
-    $str .= "{\n";
+    $str = join(' ', $parts) . "{\n";
     foreach ($class->getMethods() as $method) {
       $str .= '  ' . $this->formatMethod($method);
     }
