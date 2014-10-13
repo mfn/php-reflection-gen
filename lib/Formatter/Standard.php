@@ -34,8 +34,13 @@ class Standard implements Formatter {
     return $func . "\n";
   }
 
+  static private function isValidVariableName($name) {
+    return preg_match(';[a-z][a-z0-9]*;i', $name);
+  }
+
   public function formatParameters(array $parameters) {
-    $params = array_map(function (\ReflectionParameter $param) {
+    $pos = 1;
+    $params = array_map(function (\ReflectionParameter $param) use(&$pos) {
       $str = '';
       if ($param->isArray()) {
         $str .= 'array ';
@@ -49,10 +54,15 @@ class Standard implements Formatter {
       if ($param->isPassedByReference()) {
         $str .= '&';
       }
-      $str .= '$' . $param->getName();
+      $name = $param->getName();
+      if (!self::isValidVariableName($name)) {
+        $name = 'param' . $pos;
+      }
+      $str .= '$' . $name;
       if ($param->isDefaultValueAvailable()) {
         $str .= ' = ' . $this->formatValue($param->getDefaultValue());
       }
+      $pos++;
       return $str;
     }, $parameters);
     return join(', ', $params);
