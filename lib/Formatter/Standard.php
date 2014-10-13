@@ -131,7 +131,7 @@ class Standard implements Formatter {
     if ($method->isStatic()) {
       $str .= 'static ';
     }
-    if ($method->isAbstract()) {
+    if ($method->isAbstract() && !$method->getDeclaringClass()->isInterface()) {
       $str .= 'abstract ';
     }
     if ($method->isPrivate()) {
