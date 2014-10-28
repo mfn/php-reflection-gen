@@ -43,7 +43,9 @@ class Generator extends Command {
         'directory',
         NULL,
         InputOption::VALUE_OPTIONAL,
-        'Directory to write generated reflection data to'
+        'Directory to write generated reflection data to' . PHP_EOL
+        . 'Note: invidual files will be generated for each "extension" a '
+        . 'reflection entity belongs to'
       )
       ->addOption(
         'file',

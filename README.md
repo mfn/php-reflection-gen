@@ -1,4 +1,4 @@
-# PHP-Analzyer [ ![Travis Build Status](https://travis-ci.org/mfn/php-reflection-gen.svg?branch=master)](https://travis-ci.org/mfn/php-reflection-gen)
+# PHP-Analzyer
 
 Homepage: https://github.com/mfn/php-reflection-gen
 
@@ -11,7 +11,7 @@ PHP code.
 # Install / Usage
 
 ```
-composer require mfn/php-reflection-gen 0.0.1
+composer require mfn/php-reflection-gen 0.0.4
 ```
 
 `php_reflection_gen.php`
