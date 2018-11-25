@@ -1,4 +1,4 @@
-# PHP-Analzyer
+# Reflection based PHP stub generator
 
 Homepage: https://github.com/mfn/php-reflection-gen
 
