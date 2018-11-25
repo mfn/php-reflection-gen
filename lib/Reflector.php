@@ -7,7 +7,7 @@ use Mfn\PHP\Reflection\Generator\Listener\Listener;
 
 class Reflector {
 
-  const VERSION = '0.0.4';
+  const VERSION = '0.0.5';
 
   /** @var Formatter */
   private $formatter;

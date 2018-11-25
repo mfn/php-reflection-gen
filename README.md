@@ -11,7 +11,7 @@ PHP code.
 # Install / Usage
 
 ```
-composer require mfn/php-reflection-gen 0.0.4
+composer require mfn/php-reflection-gen 0.0.5
 ```
 
 `php_reflection_gen.php`
